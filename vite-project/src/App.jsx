@@ -2,8 +2,11 @@ import Navbar from "./components/navbar";
 import Menu from "./components/menu";
 import Items from "./components/Items";
 import Cart from "./components/cart";
+import Admin from "./components/admin";
+import ManageItems from "./components/manageItems";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 function App() {
 	//states
 	const [allItems, setAllItems] = useState([]);
@@ -13,17 +16,20 @@ function App() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [cartCount, setCartCount] = useState(0);
 	const [cartItems, setCartItems] = useState([]);
+	const [Loading, setLoading] = useState(false)
 	// backend fetch
 	useEffect(() => {
-		fetch("http://localhost:3000/menu")
-			.then((res) => res.json())
-			.then((data) => {
-				setAllItems(data);
-				setitems(data);
-			});
-		fetch("http://localhost:3000/categories")
-			.then((res) => res.json())
-			.then((data) => setcategory(data));
+		const getData = async () => {
+			setLoading(true)
+			const { data } = await axios.get("http://localhost:3000/menu?_delay=1500");
+			setAllItems(data)
+			setitems(data)
+			setLoading(false)
+		};
+		getData();
+		axios.get("http://localhost:3000/categories").then(({ data }) => {
+			setcategory(data)
+		});
 	}, []);
 
 	//handlers
@@ -95,6 +101,7 @@ function App() {
 									category={category}
 									selected={selected}
 									handleSel={handleSel}
+									loading={Loading}
 								/>
 							</div>
 							<div className="flex-1">
@@ -104,12 +111,27 @@ function App() {
 									handlePage={handlePage}
 									handleSearch={handleSearch}
 									handleCart={handleCart}
+									loading={Loading}
 								/>
 							</div>
 						</div>
 					}
 				/>
-				<Route path="/cart" element={<Cart cartItems={cartItems} handleInc={handleInc} handleDec={handleDec} handleDel={handleDel}></Cart>} />
+				<Route
+					path="/cart"
+					element={
+						<Cart
+							cartItems={cartItems}
+							handleInc={handleInc}
+							handleDec={handleDec}
+							handleDel={handleDel}></Cart>
+					}
+				/>
+				<Route path="/Admin" element={<Admin />} />
+				<Route
+					path="/admin/Menu-Items"
+					element={<ManageItems category={category} currentItems={currentItems} />}
+				/>
 				<Route path="*" element={<Navigate to="/" />} />
 			</Routes>
 		</>

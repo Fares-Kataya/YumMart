@@ -1,7 +1,16 @@
 import React from 'react'
 
-export default function Items({ items, pages, handlePage, handleSearch, handleCart }) {
+export default function Items({ items, pages, handlePage, handleSearch, handleCart, loading }) {
 	const arr = [...Array(pages)].map((_, i) => i + 1);
+	if (loading) {
+		return (
+			<>
+				<div className="w-full h-screen flex items-center justify-center">
+					<span className="loading loading-spinner loading-xl"></span>
+				</div>
+			</>
+		);
+	}
 	return (
 		<div className="overflow-x-auto">
 			<div className="flex justify-between">
