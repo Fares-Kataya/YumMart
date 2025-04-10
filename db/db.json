@@ -1,66 +1,21 @@
 {
-  "menu": [
-    {
-      "id": 4,
-      "name": "Ranch Pizza",
-      "price": "80",
-      "count": 0,
-      "isInCart": true,
-      "category": "2"
-    },
-    {
-      "id": 5,
-      "name": "BBQ Pizza",
-      "price": "50",
-      "count": 0,
-      "isInCart": true,
-      "category": "2"
-    },
-    {
-      "id": 6,
-      "name": "Super supreme Pizza",
-      "price": "70",
-      "count": 0,
-      "isInCart": true,
-      "category": "2"
-    },
-    {
-      "id": 7,
-      "name": "Arabiata Pasta",
-      "price": "70",
-      "count": 0,
-      "isInCart": false,
-      "category": "3"
-    },
-    {
-      "id": 8,
-      "name": "pesto Pasta",
-      "price": "70",
-      "count": 0,
-      "isInCart": false,
-      "category": "3"
-    }
-  ],
-  "categories": [
-    {
-      "id": 0,
-      "name": "All"
-    },
-    {
-      "id": 1,
-      "name": "Burger"
-    },
-    {
-      "id": 2,
-      "name": "Pizza"
-    },
-    {
-      "id": 3,
-      "name": "Pasta"
-    },
-    {
-      "id": 4,
-      "name": "Salad"
-    }
-  ]
+    "menu":[
+        {"id": 1, "name": "Cheese Burger", "price": "20", "count": 0, "isInCart": false, "category": "1"},
+        {"id": 2, "name": "Mushroom Burger", "price": "50", "count": 0, "isInCart": false, "category": "1"},
+        {"id": 3, "name": "Charboiled Burger", "price": "40", "count": 0, "isInCart": false, "category": "1"},
+        {"id": 4, "name": "Ranch Pizza", "price": "80", "count": 0, "isInCart": true, "category": "2"},
+        {"id": 5, "name": "BBQ Pizza", "price": "50", "count": 0, "isInCart": true, "category": "2"},
+        {"id": 6, "name": "Super supreme Pizza", "price": "70", "count": 0, "isInCart": true, "category": "2"},
+        {"id": 7, "name": "Arabiata Pasta", "price": "70", "count": 0, "isInCart": false, "category": "3"},
+        {"id": 8, "name": "pesto Pasta", "price": "70", "count": 0, "isInCart": false, "category": "3"},
+        {"id": 9, "name": "Cesar Salad", "price": "30", "count": 0, "isInCart": false, "category": "4"},
+        {"id": 10, "name": "Green Salad", "price": "30", "count": 0, "isInCart": false, "category": "4"}
+    ],
+    "categories":[
+        {"id": 0, "name": "All"},
+        {"id": 1, "name": "Burger"},
+        {"id": 2, "name": "Pizza"},
+        {"id": 3, "name": "Pasta"},
+        {"id": 4, "name": "Salad"}
+    ]
 }
